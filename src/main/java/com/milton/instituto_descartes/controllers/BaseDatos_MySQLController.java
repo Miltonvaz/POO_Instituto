@@ -99,40 +99,30 @@ public class BaseDatos_MySQLController {
         c2Table.setOnEditCommit(event -> {
             Estudiante estudiante = event.getRowValue();
             estudiante.setNombre(event.getNewValue());
-            actualizarEstudiante(estudiante);
+            baseDatos.updateStudent(estudiante);
         });
 
         c3Table.setCellFactory(TextFieldTableCell.forTableColumn());
         c3Table.setOnEditCommit(event -> {
             Estudiante estudiante = event.getRowValue();
             estudiante.setApellido(event.getNewValue());
-            actualizarEstudiante(estudiante);
+            baseDatos.updateStudent(estudiante);
         });
 
         c4Table.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         c4Table.setOnEditCommit(event -> {
             Estudiante estudiante = event.getRowValue();
             estudiante.setEdad(event.getNewValue());
-            actualizarEstudiante(estudiante);
+            baseDatos.updateStudent(estudiante);
         });
 
         c5Table.setCellFactory(TextFieldTableCell.forTableColumn());
         c5Table.setOnEditCommit(event -> {
             Estudiante estudiante = event.getRowValue();
             estudiante.setGenero(event.getNewValue());
-            actualizarEstudiante(estudiante);
+            baseDatos.updateStudent(estudiante);
         });
     }
-
-    private void actualizarEstudiante(Estudiante estudiante) {
-        if (baseDatos != null) {
-            baseDatos.updateStudent(estudiante);
-            mostrarEstudiantes();
-        } else {
-            showAlert("Error", "Base de Datos No Disponible", "No se ha seleccionado una base de datos válida.", Alert.AlertType.ERROR);
-        }
-    }
-
     private void showAlert(String titulo, String encabezado, String contenido, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
