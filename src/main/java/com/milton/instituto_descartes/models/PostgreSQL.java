@@ -27,8 +27,14 @@ public class PostgreSQL implements IBase_Datos {
     }
 
     @Override
-    public boolean delete(Estudiante estudiante) {
-        return listStudents3.remove(estudiante);
+    public boolean delete(String matricula) {
+        for (Estudiante estudiante : listStudents3) {
+            if (estudiante.getMatricula().equals(matricula)) {
+                listStudents3.remove(estudiante);
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Estudiante> getListStudents3() {

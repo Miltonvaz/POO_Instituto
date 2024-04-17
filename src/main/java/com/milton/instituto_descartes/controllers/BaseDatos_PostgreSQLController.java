@@ -48,16 +48,22 @@ public class BaseDatos_PostgreSQLController {
     private TableColumn<Estudiante, String> c5Table;
 
     @FXML
-    private TextField textFielModi;
-
+    private TextField textFieldDelete;
     private Escuela baseDatos = HelloApplication.getAdmin();
 
 
     @FXML
     public void bttonDelate(MouseEvent mouseEvent) {
-        Estudiante selectedEstudiante = tableView.getSelectionModel().getSelectedItem();
-        if (selectedEstudiante != null) {
-            boolean deleted = baseDatos.delete(selectedEstudiante);
+        String matricula = textFieldDelete.getText();
+        boolean matriculaEncontrada = false;
+        for (Estudiante estudiante : baseDatos.getMySQL().getListStudents1()) {
+            if (estudiante.getMatricula().equals(matricula)) {
+                matriculaEncontrada = true;
+                break;
+            }
+        }
+        if (matriculaEncontrada) {
+            boolean deleted = baseDatos.delete(matricula);
             if (deleted) {
                 showAlert("Éxito", "Estudiante eliminado", "El estudiante se eliminó correctamente.", Alert.AlertType.INFORMATION);
                 mostrarEstudiantes();
@@ -65,6 +71,7 @@ public class BaseDatos_PostgreSQLController {
                 showAlert("Error", "No se encontró el estudiante", "No se encontró un estudiante con la matrícula proporcionada.", Alert.AlertType.ERROR);
             }
         } else {
+
             showAlert("Error", "Seleccionar Estudiante", "Por favor, seleccione un estudiante de la tabla.", Alert.AlertType.ERROR);
         }
     }
@@ -123,9 +130,6 @@ public class BaseDatos_PostgreSQLController {
             baseDatos.updateStudent(estudiante);
         });
     }
-
-
-
     private void showAlert(String titulo, String encabezado, String contenido, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

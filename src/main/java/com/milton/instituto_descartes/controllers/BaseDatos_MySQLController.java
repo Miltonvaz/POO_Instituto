@@ -48,16 +48,24 @@ public class BaseDatos_MySQLController {
     private TableColumn<Estudiante, String> c5Table;
 
     @FXML
-    private TextField textFielModi;
+    private TextField textFieldDelete;
+
 
     private Escuela baseDatos = HelloApplication.getAdmin();
 
 
     @FXML
     public void bttonDelate(MouseEvent mouseEvent) {
-       Estudiante selectedStudent = tableView.getSelectionModel().getSelectedItem();
-        if (selectedStudent != null) {
-            boolean deleted = baseDatos.delete(selectedStudent);
+        String matricula = textFieldDelete.getText();
+        boolean matriculaEncontrada = false;
+        for (Estudiante estudiante : baseDatos.getMySQL().getListStudents1()) {
+            if (estudiante.getMatricula().equals(matricula)) {
+                matriculaEncontrada = true;
+                break;
+            }
+        }
+        if (matriculaEncontrada) {
+            boolean deleted = baseDatos.delete(matricula);
             if (deleted) {
                 showAlert("Éxito", "Estudiante eliminado", "El estudiante se eliminó correctamente.", Alert.AlertType.INFORMATION);
                 mostrarEstudiantes();
@@ -65,6 +73,7 @@ public class BaseDatos_MySQLController {
                 showAlert("Error", "No se encontró el estudiante", "No se encontró un estudiante con la matrícula proporcionada.", Alert.AlertType.ERROR);
             }
         } else {
+
             showAlert("Error", "Seleccionar Estudiante", "Por favor, seleccione un estudiante de la tabla.", Alert.AlertType.ERROR);
         }
     }

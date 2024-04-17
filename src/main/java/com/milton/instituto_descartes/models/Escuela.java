@@ -44,9 +44,9 @@ public class Escuela {
         }
     }
 
-    public boolean delete(Estudiante estudiante) {
+    public boolean delete(String matricula) {
         for (IBase_Datos data : listStudents){
-            data.delete(estudiante);
+            data.delete(matricula);
         }
         return true;
     }
@@ -56,6 +56,10 @@ public class Escuela {
             data.update(estudiante);
         }
     }
+
+    public Escuela() {
+    }
+
     public MySQL getMySQL() {
         return mySQL;
     }
@@ -66,5 +70,6 @@ public class Escuela {
     public PostgreSQL getPostgreSQL() {
         return postgreSQL;
     }
+
 
 }

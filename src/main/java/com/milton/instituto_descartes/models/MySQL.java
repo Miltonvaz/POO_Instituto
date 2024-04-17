@@ -1,7 +1,7 @@
 package com.milton.instituto_descartes.models;
 
 import java.util.ArrayList;
-
+import java.util.Iterator;
 
 
 public class MySQL implements IBase_Datos {
@@ -29,9 +29,17 @@ public class MySQL implements IBase_Datos {
     }
 
     @Override
-    public boolean delete(Estudiante estudiante) {
-        return listStudents1.remove(estudiante);
+    public boolean delete(String matricula) {
+        for (Estudiante estudiante : listStudents1) {
+            if (estudiante.getMatricula().equals(matricula)) {
+                listStudents1.remove(estudiante);
+                return true;
+            }
+        }
+        return false;
     }
+
+
 
     public ArrayList<Estudiante> getListStudents1() {
         return listStudents1;

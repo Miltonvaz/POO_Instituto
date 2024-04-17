@@ -27,8 +27,14 @@ public class Oracle implements IBase_Datos {
     }
 
     @Override
-    public boolean delete(Estudiante estudiante) {
-        return listStudents2.remove(estudiante);
+    public boolean delete(String matricula) {
+        for (Estudiante estudiante : listStudents2) {
+            if (estudiante.getMatricula().equals(matricula)) {
+                listStudents2.remove(estudiante);
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Estudiante> getListStudents2() {

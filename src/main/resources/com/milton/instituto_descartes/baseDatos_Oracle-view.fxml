@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -43,7 +44,7 @@
                 <Font name="System Bold" size="20.0" />
             </font>
         </Button>
-        <TableView fx:id="tableView" layoutX="225.0" layoutY="77.0" prefHeight="445.0" prefWidth="833.0" style="-fx-background-radius: 15;">
+        <TableView fx:id="tableView" layoutX="225.0" layoutY="77.0" prefHeight="345.0" prefWidth="833.0" style="-fx-background-radius: 15;">
             <columns>
                 <TableColumn fx:id="c1Table" prefWidth="151.0" text="Matricula" />
                 <TableColumn fx:id="c2Table" prefWidth="174.0" text="Nombre" />
@@ -52,5 +53,6 @@
                 <TableColumn fx:id="c5Table" prefWidth="139.0" text="Sexo" />
             </columns>
         </TableView>
+      <TextField fx:id="textFieldDelete" layoutX="316.0" layoutY="481.0" prefHeight="31.0" prefWidth="538.0" />
     </children>
 </AnchorPane>
