@@ -1,7 +1,8 @@
 
 package com.milton.instituto_descartes;
 
-import com.milton.instituto_descartes.models.Instituto;
+import com.milton.instituto_descartes.models.IBase_Datos;
+import com.milton.instituto_descartes.models.Escuela;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,9 +17,10 @@ public class HelloApplication extends Application {
     private static Stage stageView;
     private static Stage stageRoot;
 
-    private static Instituto admin = new Instituto(null);
-    public static Instituto getAdmin(){return admin;}
-    public static void setAdmin(Instituto newAdmin){
+    private static IBase_Datos baseDatos;
+    private static Escuela admin = new Escuela(baseDatos);
+    public static Escuela getAdmin(){return admin;}
+    public static void setAdmin(Escuela newAdmin){
         admin = newAdmin;
     }
 

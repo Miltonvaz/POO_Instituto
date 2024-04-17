@@ -2,7 +2,7 @@
 package com.milton.instituto_descartes.controllers;
 
 import com.milton.instituto_descartes.HelloApplication;
-import com.milton.instituto_descartes.models.Instituto;
+import com.milton.instituto_descartes.models.Escuela;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -22,7 +22,7 @@ public class HelloController {
     void bttonIniciar(MouseEvent event) {
         String usuario = textFieldUsuario.getText();
         String contraseña = textFieldPwd.getText();
-        Instituto admin = HelloApplication.getAdmin();
+        Escuela admin = HelloApplication.getAdmin();
         if (usuario.equals(admin.getUser()) && contraseña.equals(admin.getPassword())) {
             HelloApplication.newStage("menu-view", "Menú Principal");
         } else {

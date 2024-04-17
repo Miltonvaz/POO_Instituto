@@ -1,8 +1,8 @@
-
 package com.milton.instituto_descartes.controllers;
 
 import com.milton.instituto_descartes.HelloApplication;
-import com.milton.instituto_descartes.models.*;
+import com.milton.instituto_descartes.models.Escuela;
+import com.milton.instituto_descartes.models.Estudiante;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -37,44 +37,26 @@ public class StudentsController {
     @FXML
     private ComboBox<String> comboBoxB;
 
-    private Student student = new Student();
-    private Instituto instituto = HelloApplication.getAdmin();
+    private Escuela escuela = HelloApplication.getAdmin();
 
     @FXML
     void bttonAdd(MouseEvent event) {
         try {
-            student.setNombre(textNombre.getText().trim());
-            student.setApellido(textApellido.getText().trim());
-            student.setEdad(Integer.parseInt(textEdad.getText().trim()));
-            student.setMatricula(textMatricula.getText().trim());
-            student.setGenero(bttonGenero.isSelected() ? "Mujer" : "Hombre");
-
-            IBase_Datos baseDatos = null;
+            Estudiante estudiante = new Estudiante();
+            estudiante.setNombre(textNombre.getText().trim());
+            estudiante.setApellido(textApellido.getText().trim());
+            estudiante.setEdad(Integer.parseInt(textEdad.getText().trim()));
+            estudiante.setMatricula(textMatricula.getText().trim());
+            estudiante.setGenero(bttonGenero.isSelected() ? "Mujer" : "Hombre");
             String selectedDatabase = comboBoxB.getValue();
-            switch (selectedDatabase) {
-                case "MySQL":
-                    baseDatos = new MySQL();
-                    break;
-                case "Oracle":
-                    baseDatos = new Oracle();
-                    break;
-                case "PostgreSQL":
-                    baseDatos = new PostgreSQL();
-                    break;
-                default:
-                    showAlert("Error", "Seleccione una base de datos", "Por favor, seleccione una base de datos antes de agregar un estudiante.", Alert.AlertType.ERROR);
-                    return;
+            if (selectedDatabase == null || selectedDatabase.isEmpty()) {
+                showAlert("Error", "Seleccione una base de datos", "Por favor, seleccione una base de datos antes de agregar un estudiante.", Alert.AlertType.ERROR);
+                return;
             }
-
-            if (baseDatos != null) {
-                Instituto instituto = new Instituto(baseDatos);
-                instituto.saveStudent(student);
-                showAlert("Éxito", "Estudiante Agregado", "El estudiante ha sido agregado correctamente.", Alert.AlertType.INFORMATION);
-                limpiarCampos();
-                System.out.println("Estudiante agregado: " + student.toString());
-            } else {
-                showAlert("Error", "Base de Datos No Disponible", "No se ha seleccionado una base de datos válida.", Alert.AlertType.ERROR);
-            }
+            escuela.save(estudiante);
+            showAlert("Éxito", "Estudiante Agregado", "El estudiante ha sido agregado correctamente.", Alert.AlertType.INFORMATION);
+            limpiarCampos();
+            System.out.println("Estudiante agregado: " + estudiante.toString());
         } catch (NumberFormatException e) {
             showAlert("Error", "Error al ingresar datos", "Ingrese datos válidos.", Alert.AlertType.ERROR);
         }
@@ -83,10 +65,6 @@ public class StudentsController {
     @FXML
     void bttonCancelar(MouseEvent event) {
         HelloApplication.getStageView().close();
-    }
-
-    @FXML
-    void bttonGenero(MouseEvent event) {
     }
 
     @FXML
@@ -107,5 +85,8 @@ public class StudentsController {
         textApellido.clear();
         textEdad.clear();
         textMatricula.clear();
+    }
+
+    public void bttonGenero(MouseEvent mouseEvent) {
     }
 }

@@ -1,10 +1,8 @@
 package com.milton.instituto_descartes.models;
 
-import java.util.ArrayList;
-
 public interface IBase_Datos {
-    ArrayList<Student> getStudents();
-    boolean save(Student student);
-    boolean update(Student student);
-    boolean delete(Student student);
+    boolean save(Estudiante estudiante);
+    boolean update(Estudiante estudiante);
+    boolean delete(Estudiante estudiante);
+
 }

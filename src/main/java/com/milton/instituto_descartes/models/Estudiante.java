@@ -1,17 +1,17 @@
 package com.milton.instituto_descartes.models;
 
-public class Student {
+public class Estudiante {
     private String nombre;
     private String matricula;
     private String apellido;
     private int edad;
     private String genero;
 
-    public Student(String matricula) {
+    public Estudiante(String matricula) {
         this.matricula = matricula;
     }
 
-    public Student() {
+    public Estudiante() {
     }
 
     public String getNombre() {
@@ -54,14 +54,4 @@ public class Student {
         this.genero = genero;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "nombre='" + nombre + '\'' +
-                ", matricula='" + matricula + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", genero='" + genero + '\'' +
-                '}';
-    }
 }
