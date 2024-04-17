@@ -56,10 +56,6 @@ public class Escuela {
             data.update(estudiante);
         }
     }
-
-    public Escuela() {
-    }
-
     public MySQL getMySQL() {
         return mySQL;
     }

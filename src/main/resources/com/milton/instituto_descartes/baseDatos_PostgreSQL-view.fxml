@@ -58,6 +58,11 @@
                 <TableColumn fx:id="c5Table" prefWidth="139.0" text="Sexo" />
             </columns>
         </TableView>
-      <TextField fx:id="textFieldDelete" layoutX="315.0" layoutY="474.0" prefHeight="31.0" prefWidth="618.0" />
+      <TextField fx:id="textFieldDelete" layoutX="368.0" layoutY="524.0" prefHeight="31.0" prefWidth="510.0" style="-fx-background-color: #FFCDEA; -fx-background-radius: 15;" />
+      <Label layoutX="405.0" layoutY="472.0" text="Ingrese la Matricula a Eliminar:">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

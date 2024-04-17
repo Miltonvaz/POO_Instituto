@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="685.0" prefWidth="1089.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.milton.instituto_descartes.controllers.BaseDatos_MySQLController">
+<AnchorPane prefHeight="614.0" prefWidth="1089.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.milton.instituto_descartes.controllers.BaseDatos_MySQLController">
     <children>
-        <Pane prefHeight="686.0" prefWidth="200.0" style="-fx-background-color: #86469C;">
+        <Pane prefHeight="624.0" prefWidth="200.0" style="-fx-background-color: #86469C;">
             <children>
                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -27,17 +27,17 @@
                 </Label>
             </children>
         </Pane>
-        <Button fx:id="bttonDelate" layoutX="308.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#bttonDelate" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: green; -fx-background-radius: 15;" text="Eliminar" textFill="WHITE">
+        <Button fx:id="bttonDelate" layoutX="307.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#bttonDelate" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: green; -fx-background-radius: 15;" text="Eliminar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="bttonCancelar" layoutX="841.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#bttonCancelar" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: red; -fx-background-radius: 15;" text="Cancelar" textFill="WHITE">
+        <Button fx:id="bttonCancelar" layoutX="853.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#bttonCancelar" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: red; -fx-background-radius: 15;" text="Cancelar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="bttonMostrar" layoutX="572.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#bttonMostrar" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: blue; -fx-background-radius: 15;" text="Mostrar" textFill="WHITE">
+        <Button fx:id="bttonMostrar" layoutX="572.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#bttonMostrar" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: blue; -fx-background-radius: 15;" text="Mostrar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
@@ -51,6 +51,11 @@
                 <TableColumn fx:id="c5Table" prefWidth="139.0" text="Sexo" />
             </columns>
         </TableView>
-      <TextField fx:id="textFieldDelete" layoutX="337.0" layoutY="456.0" prefHeight="31.0" prefWidth="480.0" />
+      <TextField fx:id="textFieldDelete" layoutX="400.0" layoutY="465.0" prefHeight="31.0" prefWidth="480.0" style="-fx-background-radius: 15; -fx-background-color: #FFCDEA;" />
+      <Label layoutX="429.0" layoutY="407.0" text="Ingrese la Matricula a eliminar:">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
